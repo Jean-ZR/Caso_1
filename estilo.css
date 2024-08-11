@@ -1,0 +1,133 @@
+/* Estilos base */
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333; /* Texto oscuro */
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f8f8; /* Fondo gris suave */
+}
+
+/* Animación de fondo minimalista */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(45deg, #f9f9f9, #e6e6e6, #f9f9f9);
+  animation: animateBackground 15s linear infinite alternate;
+}
+
+@keyframes animateBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Contenedor principal */
+.content {
+  background-color: #ffffff; /* Fondo blanco */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  max-width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin: 0 auto;
+  width: 90%; /* Mejor control del ancho */
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 32px;
+  margin: 20px 0;
+  color: #0730c5; /* Color azul oscuro */
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Contenedores individuales */
+.drop-area,
+.container2 {
+  width: 100%;
+  max-width: 48%; /* Ancho máximo para mejor distribución en pantallas grandes */
+  margin: 10px;
+  padding: 20px;
+  transition: all .1s ease-in;
+  background-color: #f0f0f0; /* Fondo gris muy claro */
+  border-radius: 10px;
+}
+
+.drop-area {
+  border: 2px dashed #0730c5; /* Borde azul */
+  border-radius: 10px;
+}
+
+.container2 {
+  padding: 10px 20px;
+  background-color: #f8f8f8; /* Fondo gris suave */
+  overflow-y: auto;
+}
+
+/* Estilo para el texto de archivos subidos */
+.boton-descargar {
+  text-decoration: none;
+  color: #0730c5;
+  font-weight: bold;
+}
+
+.btn_delete {
+  background: none;
+  border: none;
+  color: #ff0000;
+  cursor: pointer;
+}
+
+.archivos_subidos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Estilos para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .drop-area,
+  .container2 {
+    width: 100%;
+    max-width: none;
+    margin: 10px 0; /* Margen superior e inferior para mayor separación en pantallas pequeñas */
+  }
+
+  h1 {
+    font-size: 28px; /* Tamaño del texto más pequeño en pantallas móviles */
+  }
+
+  .archivos_subidos {
+    flex-direction: column; /* Los archivos subidos se verán en columnas en pantallas pequeñas */
+    align-items: flex-start;
+  }
+}
